@@ -196,7 +196,7 @@ export default function TrainingPage() {
                 href="/contact?subject=Inquiry"
                 className="border-2 border-white/30 hover:border-white/50 hover:bg-white/5 text-white  px-8 py-4 rounded-sm transition-all duration-300"
               >
-                Request Brochure
+                Download Brochure
               </Link>
             </div>
           </motion.div>
@@ -705,13 +705,13 @@ export default function TrainingPage() {
                   strokeWidth={1.5}
                 />
               </Link>
-              <Link
+              {/* <Link
                 href="/contact?subject=Training+Inquiry"
                 className="border-2 border-white/30 hover:border-white/50 hover:bg-white/5 text-white  px-10 py-5 rounded-sm transition-all duration-300 flex items-center gap-3"
               >
                 <span>Request Information</span>
                 <Globe className="w-5 h-5" strokeWidth={1.5} />
-              </Link>
+              </Link> */}
             </div>
           </motion.div>
         </div>

@@ -62,7 +62,7 @@ export default function Navbar() {
             aria-label="Home"
           >
             <img
-              src="https://ik.imagekit.io/0s6dxbeae/Galactic%203D.png?updatedAt=1749966650272"
+              src="./navbar/logo.svg"
               alt="Galactic 3D Logo"
               className="h-10 w-auto drop-shadow-lg transition-transform duration-300 group-hover:scale-105 group-focus:scale-105"
               style={{ maxWidth: "160px" }}
