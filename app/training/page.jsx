@@ -102,7 +102,7 @@ export default function TrainingPage() {
         "Hands-on Build Preparation",
         "Advanced Parameter Editing",
         "Post-Processing & Surface Finishing",
-  "Ensuring Print Consistency",
+        "Ensuring Print Consistency",
         "Application Sprint (Capstone Project)",
         "Industrial Visit",
       ],
@@ -110,12 +110,7 @@ export default function TrainingPage() {
   ];
 
   const industryPrograms = [
-    {
-      title: "PG Diploma in Additive Manufacturing",
-      description:
-        "A comprehensive program for professionals, focusing on AM technologies, material science, and industrial applications. Learn how to integrate 3D printing into production processes for diverse industries.",
-      duration: "1 Year & 2 Years",
-    },
+
     {
       title: "Certifications in Additive Manufacturing",
       description:
@@ -139,27 +134,45 @@ export default function TrainingPage() {
   return (
     <main className="text-white">
       {/* HERO SECTION */}
-      <section className="relative min-h-[70vh] pt-28 pb-16 flex items-end overflow-hidden">
-        {/* <div className="absolute inset-0 -z-20 overflow-hidden">
-          <video
+      <section className="relative min-h-[90vh] pt-28 pb-16 flex items-center overflow-hidden">
+        {/* Animated Background Image */}
+        <div className="absolute inset-0 -z-20">
+          <motion.img
+            initial={{ scale: 1.1 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+            src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=2000&auto=format&fit=crop"
+            alt="3D Printing Training Facility"
             className="w-full h-full object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            poster="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=1600&auto=format&fit=crop"
-          >
-            <source src="/galactic-bg.mp4" type="video/mp4" />
-            <source
-              src="https://videos.pexels.com/video-files/5561422/5561422-uhd_2560_1440_25fps.mp4"
-              type="video/mp4"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/90" />
+          <div className="absolute inset-0 bg-gradient-to-r from-red-900/20 via-transparent to-blue-900/20" />
+        </div>
+
+        {/* Animated Floating Elements */}
+        <div className="absolute inset-0 -z-10 overflow-hidden">
+          {[...Array(8)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-32 h-32 border border-white/10 rounded-full"
+              initial={{
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+                scale: Math.random() * 0.5 + 0.5,
+              }}
+              animate={{
+                y: [null, Math.random() * window.innerHeight],
+                x: [null, Math.random() * window.innerWidth],
+                rotate: [0, 360],
+              }}
+              transition={{
+                duration: Math.random() * 20 + 15,
+                repeat: Infinity,
+                repeatType: "reverse",
+                ease: "linear",
+              }}
             />
-          </video>
-        </div> */}
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-[#1a0f0f]/40 to-[#0f0b0b]/80" />
-          <div className="absolute -inset-48 bg-[radial-gradient(900px_circle_at_20%_5%,rgba(185,28,28,0.25),transparent_60%)]" />
+          ))}
         </div>
         <div className="container mx-auto px-8 relative z-10">
           <motion.div
@@ -228,64 +241,124 @@ export default function TrainingPage() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Mentorship - with actual image */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="group bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 hover:border-red-500/30 rounded-sm p-10 backdrop-blur transition-all duration-300"
+              className="group relative overflow-hidden rounded-2xl border border-white/10 hover:border-blue-500/40 transition-all duration-500"
             >
-              <div className="bg-blue-500/10 w-16 h-16 rounded-sm flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-all duration-300">
-                <Lightbulb
-                  className="w-8 h-8 text-blue-400"
-                  strokeWidth={1.5}
+              {/* Image Background */}
+              <div className="absolute inset-0">
+                <img
+                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1600&auto=format&fit=crop"
+                  alt="Team collaboration and mentorship"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/40 group-hover:from-blue-900/90 group-hover:via-black/70 transition-all duration-500" />
               </div>
-              <h3 className="text-2xl  mb-4 tracking-wide">
-                Mentorship
-              </h3>
-              <p className="text-gray-400 font-['scrib'] leading-relaxed">
-                Expert guidance from industry professionals with decades of
-                experience in additive manufacturing and product development.
-              </p>
+
+              {/* Content */}
+              <div className="relative z-10 p-10 h-full flex flex-col justify-end">
+                <motion.div
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                  className="mb-4"
+                >
+                  <div className="w-12 h-12 rounded-full bg-blue-500/20 backdrop-blur-xl border border-blue-400/30 flex items-center justify-center">
+                    <Lightbulb className="w-6 h-6 text-blue-400" strokeWidth={2} />
+                  </div>
+                </motion.div>
+                <h3 className="text-3xl font-['test'] mb-4 text-white">
+                  Mentorship
+                </h3>
+                <p className="text-gray-200 font-['scrib'] leading-relaxed">
+                  Expert guidance from industry professionals with decades of
+                  experience in additive manufacturing and product development.
+                </p>
+              </div>
             </motion.div>
 
+            {/* Competence - with actual image */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="group bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 hover:border-red-500/30 rounded-sm p-10 backdrop-blur transition-all duration-300"
+              className="group relative overflow-hidden rounded-2xl border border-white/10 hover:border-red-500/40 transition-all duration-500"
             >
-              <div className="bg-red-500/10 w-16 h-16 rounded-sm flex items-center justify-center mb-6 group-hover:bg-red-500/20 transition-all duration-300">
-                <Target className="w-8 h-8 text-red-400" strokeWidth={1.5} />
+              {/* Image Background */}
+              <div className="absolute inset-0">
+                <img
+                  src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=1600&auto=format&fit=crop"
+                  alt="Hands-on 3D printing training"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/40 group-hover:from-red-900/90 group-hover:via-black/70 transition-all duration-500" />
               </div>
-              <h3 className="text-2xl  mb-4 tracking-wide">
-                Competence
-              </h3>
-              <p className="text-gray-400 font-['scrib'] leading-relaxed">
-                Build practical skills through hands-on training with
-                industry-standard equipment and real-world project experience.
-              </p>
+
+              {/* Content */}
+              <div className="relative z-10 p-10 h-full flex flex-col justify-end">
+                <motion.div
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  transition={{ delay: 0.3 }}
+                  className="mb-4"
+                >
+                  <div className="w-12 h-12 rounded-full bg-red-500/20 backdrop-blur-xl border border-red-400/30 flex items-center justify-center">
+                    <Target className="w-6 h-6 text-red-400" strokeWidth={2} />
+                  </div>
+                </motion.div>
+                <h3 className="text-3xl font-['test'] mb-4 text-white">
+                  Competence
+                </h3>
+                <p className="text-gray-200 font-['scrib'] leading-relaxed">
+                  Build practical skills through hands-on training with
+                  industry-standard equipment and real-world project experience.
+                </p>
+              </div>
             </motion.div>
 
+            {/* Empowerment - with actual image */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="group bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 hover:border-red-500/30 rounded-sm p-10 backdrop-blur transition-all duration-300"
+              className="group relative overflow-hidden rounded-2xl border border-white/10 hover:border-green-500/40 transition-all duration-500"
             >
-              <div className="bg-green-500/10 w-16 h-16 rounded-sm flex items-center justify-center mb-6 group-hover:bg-green-500/20 transition-all duration-300">
-                <Award className="w-8 h-8 text-green-400" strokeWidth={1.5} />
+              {/* Image Background */}
+              <div className="absolute inset-0">
+                <img
+                  src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600&auto=format&fit=crop"
+                  alt="Innovation and technology empowerment"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/40 group-hover:from-green-900/90 group-hover:via-black/70 transition-all duration-500" />
               </div>
-              <h3 className="text-2xl  mb-4 tracking-wide">
-                Empowerment
-              </h3>
-              <p className="text-gray-400 font-['scrib'] leading-relaxed">
-                Drive industrial transformation by equipping learners with the
-                knowledge to innovate and lead in the AM ecosystem.
-              </p>
+
+              {/* Content */}
+              <div className="relative z-10 p-10 h-full flex flex-col justify-end">
+                <motion.div
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  transition={{ delay: 0.4 }}
+                  className="mb-4"
+                >
+                  <div className="w-12 h-12 rounded-full bg-green-500/20 backdrop-blur-xl border border-green-400/30 flex items-center justify-center">
+                    <Award className="w-6 h-6 text-green-400" strokeWidth={2} />
+                  </div>
+                </motion.div>
+                <h3 className="text-3xl font-['test'] mb-4 text-white">
+                  Empowerment
+                </h3>
+                <p className="text-gray-200 font-['scrib'] leading-relaxed">
+                  Drive industrial transformation by equipping learners with the
+                  knowledge to innovate and lead in the AM ecosystem.
+                </p>
+              </div>
             </motion.div>
           </div>
 
@@ -349,43 +422,44 @@ export default function TrainingPage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               {
                 title: "Industry-Aligned Curriculum",
-                icon: BookOpen,
+                image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1600&auto=format&fit=crop",
+                alt: "Professional curriculum and learning materials",
                 color: "blue",
               },
               {
                 title: "State-of-the-Art Facilities",
-                icon: Factory,
+                image: "https://images.unsplash.com/photo-1581092918484-8313e1f7e8d8?q=80&w=1600&auto=format&fit=crop",
+                alt: "Modern 3D printing facility",
                 color: "red",
               },
               {
                 title: "Expert Trainers & Real Projects",
-                icon: Users,
+                image: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?q=80&w=1600&auto=format&fit=crop",
+                alt: "Expert trainers guiding students",
                 color: "green",
               },
               {
                 title: "Internships & Placement Support",
-                icon: TrendingUp,
+                image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1600&auto=format&fit=crop",
+                alt: "Career growth and opportunities",
                 color: "purple",
               },
             ].map((item, idx) => {
-              const IconComponent = item.icon;
               const colorClasses = {
-                blue: "from-blue-500/10 to-blue-500/5 border-blue-500/20 group-hover:border-blue-500/40",
-                red: "from-red-500/10 to-red-500/5 border-red-500/20 group-hover:border-red-500/40",
-                green:
-                  "from-green-500/10 to-green-500/5 border-green-500/20 group-hover:border-green-500/40",
-                purple:
-                  "from-purple-500/10 to-purple-500/5 border-purple-500/20 group-hover:border-purple-500/40",
+                blue: "border-blue-500/30 hover:border-blue-500/60",
+                red: "border-red-500/30 hover:border-red-500/60",
+                green: "border-green-500/30 hover:border-green-500/60",
+                purple: "border-purple-500/30 hover:border-purple-500/60",
               };
-              const iconColors = {
-                blue: "text-blue-400",
-                red: "text-red-400",
-                green: "text-green-400",
-                purple: "text-purple-400",
+              const overlayColors = {
+                blue: "group-hover:from-blue-900/90",
+                red: "group-hover:from-red-900/90",
+                green: "group-hover:from-green-900/90",
+                purple: "group-hover:from-purple-900/90",
               };
               return (
                 <motion.div
@@ -393,18 +467,40 @@ export default function TrainingPage() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: idx * 0.1 }}
-                  className={`group bg-gradient-to-br ${
-                    colorClasses[item.color]
-                  } border rounded-sm p-8 backdrop-blur hover:scale-[1.02] transition-all duration-300`}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  className={`group relative overflow-hidden rounded-2xl border ${colorClasses[item.color]} transition-all duration-500 h-80`}
                 >
-                  <IconComponent
-                    className={`w-12 h-12 ${iconColors[item.color]} mb-6`}
-                    strokeWidth={1.5}
-                  />
-                  <h3 className="text-lg  text-gray-100 leading-tight">
-                    {item.title}
-                  </h3>
+                  {/* Image Background */}
+                  <div className="absolute inset-0">
+                    <img
+                      src={item.image}
+                      alt={item.alt}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className={`absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30 ${overlayColors[item.color]} transition-all duration-500`} />
+                  </div>
+
+                  {/* Content */}
+                  <div className="relative z-10 p-8 h-full flex flex-col justify-end">
+                    <motion.div
+                      initial={{ y: 20, opacity: 0 }}
+                      whileInView={{ y: 0, opacity: 1 }}
+                      transition={{ delay: 0.2 + idx * 0.1 }}
+                    >
+                      <h3 className="text-2xl font-['test'] text-white leading-tight">
+                        {item.title}
+                      </h3>
+                    </motion.div>
+                  </div>
+
+                  {/* Hover Overlay with Icon */}
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    whileHover={{ opacity: 1 }}
+                    className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent flex items-center justify-center"
+                  >
+                    <CheckCircle2 className="w-16 h-16 text-white/80" strokeWidth={1.5} />
+                  </motion.div>
                 </motion.div>
               );
             })}
@@ -442,29 +538,86 @@ export default function TrainingPage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {schoolLevels.map((item, idx) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              {
+                level: "Level 1",
+                title: "3D Printing Designer (Consumer)",
+                description: "Introduces students to 3D design fundamentals, enabling them to create basic consumer-friendly models for everyday use.",
+                image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1600&auto=format&fit=crop",
+                alt: "Students learning 3D design",
+              },
+              {
+                level: "Level 2",
+                title: "3D Printing Technology & Operation",
+                description: "Students gain hands-on experience with 3D printing data preparation techniques & machine operation.",
+                image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1600&auto=format&fit=crop",
+                alt: "Hands-on 3D printer operation",
+              },
+              {
+                level: "Level 3",
+                title: "3D Printing Application Developer",
+                description: "Focuses on 3D printing applications for home decor, automotive, drone & lifestyle.",
+                image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?q=80&w=1600&auto=format&fit=crop",
+                alt: "3D printing applications",
+              },
+              {
+                level: "Level 4",
+                title: "3D Innovator",
+                description: "Equips students in designing & developing their own 3D printer for multiple purposes.",
+                image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1600&auto=format&fit=crop",
+                alt: "Advanced 3D printer development",
+              },
+            ].map((item, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="group bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 hover:border-blue-500/30 rounded-sm p-8 backdrop-blur transition-all duration-300"
+                className="group relative overflow-hidden rounded-2xl border border-white/10 hover:border-blue-500/40 transition-all duration-500 h-96"
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="bg-blue-500/10 rounded-sm px-4 py-1.5 border border-blue-500/30">
-                    <span className="text-sm  text-blue-300 tracking-wide">
-                      {item.level}
-                    </span>
-                  </div>
+                {/* Image Background */}
+                <div className="absolute inset-0">
+                  <img
+                    src={item.image}
+                    alt={item.alt}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30 group-hover:from-blue-900/90 transition-all duration-500" />
                 </div>
-                <h3 className="text-xl  mb-4 text-white group-hover:text-blue-300 transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-gray-400 font-['scrib'] leading-relaxed">
-                  {item.description}
-                </p>
+
+                {/* Content */}
+                <div className="relative z-10 p-8 h-full flex flex-col justify-end">
+                  <motion.div
+                    initial={{ x: -20, opacity: 0 }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.2 + idx * 0.1 }}
+                    className="mb-4"
+                  >
+                    <div className="inline-block bg-blue-500/20 backdrop-blur-xl border border-blue-400/40 rounded-full px-4 py-1.5">
+                      <span className="text-sm font-bold text-blue-300 tracking-wide">
+                        {item.level}
+                      </span>
+                    </div>
+                  </motion.div>
+                  <h3 className="text-2xl font-['test'] mb-3 text-white group-hover:text-blue-300 transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-200 font-['scrib'] leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+
+                {/* Animated Corner Accent */}
+                <motion.div
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  transition={{ delay: 0.3 + idx * 0.1, type: "spring" }}
+                  className="absolute top-4 right-4 w-12 h-12 border-2 border-blue-400/30 rounded-full flex items-center justify-center backdrop-blur-xl bg-blue-500/10"
+                >
+                  <GraduationCap className="w-6 h-6 text-blue-400" strokeWidth={1.5} />
+                </motion.div>
               </motion.div>
             ))}
           </div>
@@ -567,28 +720,79 @@ export default function TrainingPage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {industryPrograms.map((program, idx) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Certifications in Additive Manufacturing",
+                description: "Specialized courses for professionals to enhance their skills in specific areas of AM, including DFAM, material for AM, and applications.",
+                duration: "6 months",
+                image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1600&auto=format&fit=crop",
+                alt: "Professional certification training",
+              },
+              {
+                title: "Executive Certifications",
+                description: "Designed for industry leaders, this program offers high-level insights into the strategic use of Additive Manufacturing.",
+                duration: "3/6/9 months",
+                image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1600&auto=format&fit=crop",
+                alt: "Executive leadership training",
+              },
+              {
+                title: "Industry-Specific Training",
+                description: "Tailored training for industries such as aerospace, automotive, and healthcare, focusing on applications of AM in each sector.",
+                duration: "As per the requirement",
+                image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1600&auto=format&fit=crop",
+                alt: "Industry-specific AM training",
+              },
+            ].map((program, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="group bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 hover:border-red-500/30 rounded-sm p-8 backdrop-blur transition-all duration-300"
+                className="group relative overflow-hidden rounded-2xl border border-white/10 hover:border-red-500/40 transition-all duration-500"
               >
-                <h3 className="text-2xl  mb-4 text-white group-hover:text-red-300 transition-colors">
-                  {program.title}
-                </h3>
-                <p className="text-gray-400 font-['scrib'] mb-6 leading-relaxed">
-                  {program.description}
-                </p>
-                <div className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/30 rounded-sm px-4 py-2">
-                  <Cog className="w-4 h-4 text-red-400" strokeWidth={1.5} />
-                  <span className="text-sm  text-red-300 tracking-wide">
-                    Duration: {program.duration}
-                  </span>
+                {/* Image Background */}
+                <div className="absolute inset-0">
+                  <img
+                    src={program.image}
+                    alt={program.alt}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/40 group-hover:from-red-900/90 transition-all duration-500" />
                 </div>
+
+                {/* Content */}
+                <div className="relative z-10 p-8 min-h-[400px] flex flex-col justify-end">
+                  <motion.div
+                    initial={{ y: 20, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.2 + idx * 0.1 }}
+                  >
+                    <h3 className="text-2xl font-['test'] mb-4 text-white group-hover:text-red-300 transition-colors">
+                      {program.title}
+                    </h3>
+                    <p className="text-gray-200 font-['scrib'] mb-6 leading-relaxed">
+                      {program.description}
+                    </p>
+                    <div className="inline-flex items-center gap-2 bg-red-500/20 backdrop-blur-xl border border-red-400/40 rounded-full px-5 py-2">
+                      <Cog className="w-5 h-5 text-red-400" strokeWidth={1.5} />
+                      <span className="text-sm font-bold text-red-300 tracking-wide">
+                        Duration: {program.duration}
+                      </span>
+                    </div>
+                  </motion.div>
+                </div>
+
+                {/* Animated Icon Badge */}
+                <motion.div
+                  initial={{ scale: 0, rotate: -180 }}
+                  whileInView={{ scale: 1, rotate: 0 }}
+                  transition={{ delay: 0.3 + idx * 0.1, type: "spring", stiffness: 200 }}
+                  className="absolute top-4 right-4 w-14 h-14 bg-red-500/20 backdrop-blur-xl border-2 border-red-400/40 rounded-full flex items-center justify-center"
+                >
+                  <Factory className="w-7 h-7 text-red-400" strokeWidth={1.5} />
+                </motion.div>
               </motion.div>
             ))}
           </div>
@@ -615,37 +819,99 @@ export default function TrainingPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 rounded-sm p-12 backdrop-blur max-w-5xl mx-auto"
+            className="relative overflow-hidden rounded-3xl border border-white/10 max-w-6xl mx-auto"
           >
-            <div className="flex items-center justify-center mb-8">
-              <div className="bg-yellow-500/10 w-20 h-20 rounded-sm flex items-center justify-center">
-                <Users
-                  className="w-10 h-10 text-yellow-400"
-                  strokeWidth={1.5}
-                />
+            {/* Background Image */}
+            <div className="absolute inset-0">
+              <img
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1800&auto=format&fit=crop"
+                alt="Expert team collaboration"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/85 to-black/60" />
+              <div className="absolute inset-0 bg-gradient-to-r from-yellow-900/30 via-transparent to-orange-900/30" />
+            </div>
+
+            {/* Content */}
+            <div className="relative z-10 p-16">
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 0.2, type: "spring" }}
+                className="flex items-center justify-center mb-10"
+              >
+                <div className="bg-yellow-500/20 w-24 h-24 rounded-2xl flex items-center justify-center border-2 border-yellow-400/40 backdrop-blur-xl">
+                  <Users
+                    className="w-12 h-12 text-yellow-400"
+                    strokeWidth={1.5}
+                  />
+                </div>
+              </motion.div>
+
+              <motion.p
+                initial={{ y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.3 }}
+                className="text-gray-100 font-['scrib'] text-xl mb-10 text-center leading-relaxed max-w-4xl mx-auto"
+              >
+                A highly qualified expert team with 30+ years of combined
+                experience, including Ph.D. holders, M.Tech graduates, and
+                industry professionals, specializing in advanced manufacturing
+                technologies and fostering innovation in training and curating
+                course content.
+              </motion.p>
+
+              <div className="flex flex-wrap justify-center gap-6">
+                <motion.div
+                  initial={{ x: -20, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.4 }}
+                  className="inline-flex items-center gap-3 bg-yellow-500/20 backdrop-blur-xl border-2 border-yellow-400/40 rounded-full px-8 py-4"
+                >
+                  <Shield className="w-6 h-6 text-yellow-400" strokeWidth={1.5} />
+                  <span className="font-bold text-yellow-300 tracking-wide">
+                    EOS Approved
+                  </span>
+                </motion.div>
+                <motion.div
+                  initial={{ x: 20, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.5 }}
+                  className="inline-flex items-center gap-3 bg-yellow-500/20 backdrop-blur-xl border-2 border-yellow-400/40 rounded-full px-8 py-4"
+                >
+                  <Award className="w-6 h-6 text-yellow-400" strokeWidth={1.5} />
+                  <span className="font-bold text-yellow-300 tracking-wide">
+                    Board of Studies Certified
+                  </span>
+                </motion.div>
               </div>
             </div>
-            <p className="text-gray-300 font-['scrib'] text-lg mb-8 text-center leading-relaxed max-w-3xl mx-auto">
-              A highly qualified expert team with 30+ years of combined
-              experience, including Ph.D. holders, M.Tech graduates, and
-              industry professionals, specializing in advanced manufacturing
-              technologies and fostering innovation in training and curating
-              course content.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <div className="inline-flex items-center gap-2 bg-yellow-500/10 border border-yellow-500/30 rounded-sm px-6 py-3">
-                <Shield className="w-5 h-5 text-yellow-400" strokeWidth={1.5} />
-                <span className=" text-yellow-300 tracking-wide text-sm">
-                  EOS Approved
-                </span>
-              </div>
-              <div className="inline-flex items-center gap-2 bg-yellow-500/10 border border-yellow-500/30 rounded-sm px-6 py-3">
-                <Award className="w-5 h-5 text-yellow-400" strokeWidth={1.5} />
-                <span className=" text-yellow-300 tracking-wide text-sm">
-                  Board of Studies Certified
-                </span>
-              </div>
-            </div>
+
+            {/* Animated Decorative Elements */}
+            <motion.div
+              animate={{
+                scale: [1, 1.2, 1],
+                rotate: [0, 180, 360],
+              }}
+              transition={{
+                duration: 20,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+              className="absolute -top-10 -left-10 w-40 h-40 border border-yellow-400/20 rounded-full"
+            />
+            <motion.div
+              animate={{
+                scale: [1, 1.1, 1],
+                rotate: [360, 180, 0],
+              }}
+              transition={{
+                duration: 15,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+              className="absolute -bottom-10 -right-10 w-32 h-32 border border-yellow-400/20 rounded-full"
+            />
           </motion.div>
         </div>
       </section>

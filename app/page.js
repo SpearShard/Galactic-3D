@@ -3,7 +3,13 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useRef } from "react";
+
+import ImageCascadeGSAP from "../app/components/ImageCascadeGSAP";
+
+
+import ServiceTabs from "../app/components/ServiceTabs";
+import TechShowcase from "../app/components/TechShowcase";
+import AdvancedProcess from "../app/components/AdvancedProcess";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,6 +24,13 @@ export default function Home() {
     "https://images.unsplash.com/photo-1581090700227-1e37b190418e?q=80&w=1200&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1581090707285-92c0f5c95c5b?q=80&w=1200&auto=format&fit=crop",
   ];
+
+  const makeImages = (seed) => [
+    `https://picsum.photos/seed/${seed}1/900/700`,
+    `https://picsum.photos/seed/${seed}2/900/700`,
+    `https://picsum.photos/seed/${seed}3/900/700`,
+  ];
+
   const useCaseImgs = [
     "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1200&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1581091014534-047f69f1f5ae?q=80&w=1200&auto=format&fit=crop",
@@ -81,6 +94,15 @@ export default function Home() {
     },
   ];
 
+
+  const videos = [
+    "/galactic-bg.mp4",
+    "https://www.pexels.com/download/video/4198845/",
+    "https://www.eos.info/layout/2023_EOS-Website-3-mbit_h264avc_komp.mp4",
+  ];
+
+  const [activeVideo, setActiveVideo] = useState(0);
+
   const [active, setActive] = useState(null);
 
 
@@ -92,26 +114,30 @@ export default function Home() {
     >
       {/* Hero Banner */}
       <section className="relative min-h-[100svh] md:min-h-screen flex items-center pt-24">
+
         <div className="absolute inset-0 z-0 overflow-hidden">
           <video
+            key={activeVideo} // playing a new video requires a key change to force reload/reset
             className="w-full h-full object-cover"
             style={{ minHeight: "100svh" }}
             autoPlay
             muted
-            loop
             playsInline
             preload="auto"
             poster="https://images.unsplash.com/photo-1581091215367-59ab6d0051d4?q=80&w=1600&auto=format&fit=crop"
+            onEnded={() => {
+              setActiveVideo((prev) => (prev + 1) % videos.length);
+            }}
           >
-            <source src="/galactic-bg.mp4" type="video/mp4" />
-            <source
-              src="https://videos.pexels.com/video-files/6819731/6819731-hd_1920_1080_24fps.mp4"
-              type="video/mp4"
-            />
+            <source src={videos[activeVideo]} type="video/mp4" />
           </video>
           <div className="absolute top-[6vw] right-6 z-10">
             <div className="flex items-center gap-2 rounded-full border border-white/30 bg-black/40 px-4 py-2 backdrop-blur">
-              <i className="fa-solid fa-certificate text-yellow-300" />
+              <img
+                src="/ios.webp"
+                alt="texture"
+                className="h-[2rem] w-[2rem]"
+              />
               <span className="text-xs font-['dena'] tracking-widest text-white">
                 ISO CERTIFIED
               </span>
@@ -150,10 +176,10 @@ export default function Home() {
                 <span className="text-xs bg-white/10 border border-white/20 rounded-full px-3 py-1">
                   FDM
                 </span>
-                <span className="text-xs text-red-100/80">
+                {/* <span className="text-xs text-red-100/80">
                   Lead time: 3–7 days
                 </span>
-                <span className="text-xs text-red-100/80">ISO-grade compliance</span>
+                <span className="text-xs text-red-100/80">ISO-grade compliance</span> */}
               </div>
               <div className="font-['dena'] flex gap-4">
                 <a
@@ -282,219 +308,8 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="space-y-16">
 
-            {/* RAPID PROTOTYPING */}
-            <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              whileHover={{ scale: 1.02 }}
-              className="grid md:grid-cols-2 gap-10 items-center bg-gradient-to-br from-blue-500/10 to-blue-500/5 border border-blue-500/30 rounded-2xl p-10 backdrop-blur"
-            >
-              <img
-                src="/prototyping.jpg"
-                className="rounded-xl object-cover w-full h-[300px]"
-                alt="Rapid Prototyping"
-              />
-
-              <div>
-                <h3 className="text-3xl font-['dena'] mb-4">Rapid Prototyping</h3>
-
-                <p className="text-gray-300 font-['scrib'] mb-6">
-                  Test and refine your designs quickly with our high-speed prototyping services.
-                  Perfect for concept validation and functional testing with certifications.
-                </p>
-
-                <ul className="space-y-2 text-gray-300 font-['scrib']">
-                  <li>⚡ Concept validation in days</li>
-                  <li>⚡ Functional testing capabilities</li>
-                  <li>⚡ Certified materials available</li>
-                </ul>
-              </div>
-            </motion.div>
-
-            {/* FULL SCALE */}
-            <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              whileHover={{ scale: 1.02 }}
-              className="grid md:grid-cols-2 gap-10 items-center bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/30 rounded-2xl p-10 backdrop-blur"
-            >
-              <div>
-                <h3 className="text-3xl font-['dena'] mb-4">Full-Scale Production</h3>
-
-                <p className="text-gray-300 font-['scrib'] mb-6">
-                  From low-volume batch production to large-scale runs, we deliver end-use parts
-                  with exceptional precision, speed and durability.
-                </p>
-
-                <ul className="space-y-2 text-gray-300 font-['scrib']">
-                  <li>🏭 Scalable production volumes</li>
-                  <li>🏭 Consistent results across batches</li>
-                  <li>🏭 End-use grade materials</li>
-                </ul>
-              </div>
-
-              <img
-                src="/production.jpg"
-                className="rounded-xl object-cover w-full h-[300px]"
-                alt="Production"
-              />
-            </motion.div>
-
-            {/* CUSTOM MANUFACTURING */}
-            <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              whileHover={{ scale: 1.02 }}
-              className="grid md:grid-cols-2 gap-10 items-center bg-gradient-to-br from-purple-500/10 to-purple-500/5 border border-purple-500/30 rounded-2xl p-10 backdrop-blur"
-            >
-              <img
-                src="/custom.jpg"
-                className="rounded-xl object-cover w-full h-[300px]"
-                alt="Custom Manufacturing"
-              />
-
-              <div>
-                <h3 className="text-3xl font-['dena'] mb-4">Custom Manufacturing</h3>
-
-                <p className="text-gray-300 font-['scrib'] mb-6">
-                  Tailored solutions for complex designs, intricate geometries, and unique
-                  industrial needs.
-                </p>
-
-                <ul className="space-y-2 text-gray-300 font-['scrib']">
-                  <li>🛠 Complex geometry support</li>
-                  <li>🛠 Application-specific materials</li>
-                  <li>🛠 Custom finishing options</li>
-                </ul>
-              </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              whileHover={{ scale: 1.02 }}
-              className="grid md:grid-cols-2 gap-10 items-center bg-gradient-to-br from-green-500/10 to-green-500/5 border border-green-500/30 rounded-2xl p-10 backdrop-blur"
-            >
-              <img
-                src="/sustainability.jpg"
-                className="rounded-xl object-cover w-full h-[300px]"
-                alt="Sustainability"
-              />
-
-              <div>
-                <h3 className="text-3xl font-['dena'] mb-4">Sustainability in Manufacturing</h3>
-
-                <p className="text-gray-300 font-['scrib'] mb-6">
-                  Eco-conscious production with reduced waste, optimized material usage,
-                  and energy-efficient workflows — because future-proof companies care.
-                </p>
-
-                <ul className="space-y-2 text-gray-300 font-['scrib']">
-                  <li>🌱 Reduced material waste</li>
-                  <li>🌱 Energy-efficient processes</li>
-                  <li>🌱 Responsible sourcing</li>
-                </ul>
-              </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              whileHover={{ scale: 1.02 }}
-              className="grid md:grid-cols-2 gap-10 items-center bg-gradient-to-br from-cyan-500/10 to-cyan-500/5 border border-cyan-500/30 rounded-2xl p-10 backdrop-blur"
-            >
-              <div>
-                <h3 className="text-3xl font-['dena'] mb-4">Material Traceability</h3>
-
-                <p className="text-gray-300 font-['scrib'] mb-6">
-                  Track every material from source to finished part with full documentation
-                  for quality assurance and compliance.
-                </p>
-
-                <ul className="space-y-2 text-gray-300 font-['scrib']">
-                  <li>🔍 Batch-level tracking</li>
-                  <li>🔍 Certified material records</li>
-                  <li>🔍 Compliance-ready documentation</li>
-                </ul>
-              </div>
-
-              <img
-                src="/traceability.jpg"
-                className="rounded-xl object-cover w-full h-[300px]"
-                alt="Material Traceability"
-              />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              whileHover={{ scale: 1.02 }}
-              className="grid md:grid-cols-2 gap-10 items-center bg-gradient-to-br from-orange-500/10 to-orange-500/5 border border-orange-500/30 rounded-2xl p-10 backdrop-blur"
-            >
-              <img
-                src="/turnaround.jpg"
-                className="rounded-xl object-cover w-full h-[300px]"
-                alt="Rapid Turnaround"
-              />
-
-              <div>
-                <h3 className="text-3xl font-['dena'] mb-4">Rapid Turnaround</h3>
-
-                <p className="text-gray-300 font-['scrib'] mb-6">
-                  Accelerated production pipelines ensure your parts move from design to
-                  delivery in record time — without compromising precision.
-                </p>
-
-                <ul className="space-y-2 text-gray-300 font-['scrib']">
-                  <li>⚡ Same-week manufacturing</li>
-                  <li>⚡ Optimized workflow automation</li>
-                  <li>⚡ Priority production lanes</li>
-                </ul>
-              </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              whileHover={{ scale: 1.02 }}
-              className="grid md:grid-cols-2 gap-10 items-center bg-gradient-to-br from-slate-500/10 to-slate-500/5 border border-slate-500/30 rounded-2xl p-10 backdrop-blur"
-            >
-              <div>
-                <h3 className="text-3xl font-['dena'] mb-4">Advanced Facilities</h3>
-
-                <p className="text-gray-300 font-['scrib'] mb-6">
-                  Industry-grade infrastructure equipped with modern automation, real-time
-                  monitoring, and precision tooling for consistent, high-quality output.
-                </p>
-
-                <ul className="space-y-2 text-gray-300 font-['scrib']">
-                  <li>🏭 Smart manufacturing systems</li>
-                  <li>🏭 Automated inspection pipelines</li>
-                  <li>🏭 Scalable factory capacity</li>
-                </ul>
-              </div>
-
-              <img
-                src="/facility.jpg"
-                className="rounded-xl object-cover w-full h-[300px]"
-                alt="Advanced Facilities"
-              />
-            </motion.div>
-
-
-          </div>
+          <ServiceTabs />
 
         </div>
       </section>
@@ -562,52 +377,18 @@ export default function Home() {
         </div>
       </section> */}
 
+
       {/* Our Technologies */}
-      <div className="flex flex-col gap-4 max-w-3xl mx-auto">
-        {tech.map((item) => (
-          <div key={item.id}>
-            {/* TAB */}
-            <div
-              onClick={() => setActive(active === item.id ? null : item.id)}
-              className={`cursor-pointer bg-gradient-to-br from-${item.color}-500/10 to-${item.color}-500/5 border border-${item.color}-500/30 rounded-xl p-6 backdrop-blur flex items-center justify-between hover:scale-[1.02] transition`}
-            >
-              <div className="flex items-center gap-4">
-                <i
-                  className={`fa-solid ${item.icon} text-${item.color}-400 text-2xl`}
-                />
-
-                <div>
-                  <h3 className="font-['dena'] text-lg">{item.title}</h3>
-                  <p className="text-xs text-gray-400 font-['scrib']">
-                    {item.subtitle}
-                  </p>
-                </div>
-              </div>
-
-              {/* PLUS ICON */}
-              <span className="text-xl">
-                {active === item.id ? "−" : "+"}
-              </span>
-            </div>
-
-            {/* EXPAND */}
-            <AnimatePresence>
-              {active === item.id && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="overflow-hidden"
-                >
-                  <div className="mt-3 bg-white/5 border border-white/10 rounded-xl p-6 text-gray-300 text-sm font-['scrib']">
-                    {item.description}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-        ))}
+      <div className="container mx-auto px-6 mb-20">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-5xl font-['test'] mb-4">
+            Advanced Technology
+          </h2>
+          <p className="text-gray-300 font-['scrib'] text-lg">
+            We utilize state-of-the-art additive manufacturing processes.
+          </p>
+        </div>
+        <TechShowcase />
       </div>
 
 
@@ -732,127 +513,11 @@ export default function Home() {
         </div>
       </section>
 
+
+
+
       {/* Manufacturing Process */}
-      <section className="py-28 overflow-hidden">
-        <div className="container mx-auto px-6">
-
-          {/* Title */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-6xl font-['test'] mb-4">
-              Our Manufacturing Process
-            </h2>
-            <p className="text-gray-400 font-['scrib'] text-lg max-w-3xl mx-auto">
-              A streamlined, repeatable workflow that delivers precision, traceability,
-              and on-time results.
-            </p>
-          </motion.div>
-
-          <motion.ol
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            variants={{
-              hidden: {},
-              show: {
-                transition: {
-                  staggerChildren: 0.25,
-                  delayChildren: 0.3,
-                },
-              },
-            }}
-            className="grid grid-cols-1 md:grid-cols-5 gap-10 max-w-6xl mx-auto"
-          >
-            {[
-              ["01", "Design & DFAM", "fa-compass-drafting", "blue"],
-              ["02", "Prototyping", "fa-flask", "purple"],
-              ["03", "Process Assurance", "fa-shield-halved", "yellow"],
-              ["04", "Production", "fa-industry", "red"],
-              ["05", "Delivery", "fa-truck-fast", "green"],
-            ].map(([num, title, icon, color], i) => (
-              <motion.li
-                key={num}
-                variants={{
-                  hidden: {
-                    opacity: 0,
-                    rotateX: -40,
-                    rotateY: 20,
-                    z: -200,
-                  },
-                  show: {
-                    opacity: 1,
-                    rotateX: 0,
-                    rotateY: 0,
-                    z: 0,
-                    transition: {
-                      type: "spring",
-                      stiffness: 120,
-                      damping: 14,
-                    },
-                  },
-                }}
-                className="relative flex flex-col items-center text-center perspective-[1000px]"
-              >
-                {/* Orbit ring */}
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                  className={`absolute -top-10 w-24 h-24 rounded-full border border-${color}-500/20`}
-                />
-
-                {/* Number */}
-                <motion.div
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  className={`mb-4 w-14 h-14 rounded-full bg-gradient-to-br from-${color}-500 to-${color}-600 flex items-center justify-center shadow-xl`}
-                >
-                  <span className="text-white font-bold">{num}</span>
-                </motion.div>
-
-                {/* Card */}
-                <motion.div
-                  whileHover={{
-                    rotateY: 8,
-                    rotateX: -6,
-                    scale: 1.05,
-                  }}
-                  transition={{ type: "spring", stiffness: 200 }}
-                  className="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur w-full"
-                >
-                  <motion.div
-                    animate={{ scale: [1, 1.15, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className={`w-12 h-12 mx-auto mb-4 rounded-md bg-${color}-600/20 flex items-center justify-center`}
-                  >
-                    <i className={`fa-solid ${icon} text-white`} />
-                  </motion.div>
-
-                  <h3 className="font-['dena'] mb-2">{title}</h3>
-                  <p className="text-gray-400 font-['scrib'] text-sm">
-                    Stage {num} of precision manufacturing workflow.
-                  </p>
-                </motion.div>
-
-                {/* Glow */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 0.4 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.2 }}
-                  className={`absolute inset-0 blur-2xl bg-${color}-500/20 -z-10`}
-                />
-              </motion.li>
-            ))}
-          </motion.ol>
-        </div>
-      </section>
+      <AdvancedProcess />
 
       {/* Why Choose Galactic */}
       <section className="py-20">

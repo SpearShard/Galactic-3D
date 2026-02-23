@@ -77,13 +77,13 @@ export default function Navbar() {
             >
               Home
             </Link>
-            {/* <Link
-              href="/industries"
+            <Link
+              href="/upload"
               className="text-white font-neueMontreal tracking-wide text-lg hover:text-primary transition duration-300 focus:outline-none focus-visible:underline"
             >
-              Industries
+              Upload 
             </Link>
-            <Link
+            {/* <Link
               href="/services"
               className="text-white font-neueMontreal tracking-wide text-lg hover:text-primary transition duration-300 focus:outline-none focus-visible:underline"
             >

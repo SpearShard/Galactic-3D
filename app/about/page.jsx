@@ -9,7 +9,7 @@ import { Users, Award, Building, Briefcase, Handshake, ArrowRight, CheckCircle, 
 export default function About() {
   // State for active timeline item
   const [activeTimelineItem, setActiveTimelineItem] = useState(0)
-  
+
   // Timeline data
   const timelineItems = [
     { year: 2018, title: 'Founded', description: 'Galactic 3D was established with a vision to revolutionize additive manufacturing.' },
@@ -19,7 +19,7 @@ export default function About() {
     { year: 2022, title: 'Innovation Award', description: 'Received the Global Additive Manufacturing Innovation Award.' },
     { year: 2023, title: 'Sustainability Initiative', description: 'Launched eco-friendly materials and carbon-neutral production.' },
   ]
-  
+
   return (
     <main className="text-white">
       {/* HERO / INTRO */}
@@ -46,8 +46,8 @@ export default function About() {
           </motion.div>
         </div>
       </section>
-       {/* OUR STORY & HISTORY */}
-       <section id="our-story" className="py-20 bg-dark-300 relative overflow-hidden">
+      {/* OUR STORY & HISTORY */}
+      <section id="our-story" className="py-20 bg-dark-300 relative overflow-hidden">
         {/* Background elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full">
@@ -56,10 +56,10 @@ export default function About() {
           </div>
           <div className="absolute top-0 left-0 w-full h-full bg-grid-pattern opacity-10"></div>
         </div>
-        
+
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
-            <motion.h2 
+            <motion.h2
               className="text-4xl md:text-5xl font-['dena'] mb-4 inline-block"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -68,7 +68,7 @@ export default function About() {
             >
               Our Story & History
             </motion.h2>
-            <motion.div 
+            <motion.div
               className="h-1 w-24 bg-primary mx-auto"
               initial={{ width: 0 }}
               whileInView={{ width: 96 }}
@@ -76,14 +76,14 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.2 }}
             />
           </div>
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Timeline */}
             <div className="relative">
               <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-primary/50"></div>
-              
+
               {timelineItems.map((item, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   className={`relative pl-12 pb-10 cursor-pointer ${index === activeTimelineItem ? 'opacity-100' : 'opacity-60'}`}
                   onClick={() => setActiveTimelineItem(index)}
@@ -100,7 +100,7 @@ export default function About() {
                 </motion.div>
               ))}
             </div>
-            
+
             {/* Story Content */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -138,10 +138,10 @@ export default function About() {
           <div className="absolute -bottom-1/2 -right-1/4 w-full h-full rounded-full bg-gradient-to-l from-secondary/10 to-transparent blur-3xl"></div>
           <div className="absolute inset-0 bg-dark-200/80"></div>
         </div>
-        
+
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
-            <motion.h2 
+            <motion.h2
               className="text-4xl md:text-5xl font-['dena'] mb-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -150,7 +150,7 @@ export default function About() {
             >
               Vision & Mission
             </motion.h2>
-            <motion.div 
+            <motion.div
               className="h-1 w-24 bg-primary mx-auto"
               initial={{ width: 0 }}
               whileInView={{ width: 96 }}
@@ -158,10 +158,10 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.2 }}
             />
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Vision */}
-            <motion.div 
+            <motion.div
               className="bg-dark-300/50 backdrop-blur-sm p-8 rounded-xl border border-white/10 h-full"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -184,9 +184,9 @@ export default function About() {
                 By pioneering advanced materials, intelligent systems, and accessible platforms, we aim to democratize manufacturing and empower creators worldwide to bring their ideas to life with unprecedented speed and precision.
               </p>
             </motion.div>
-            
+
             {/* Mission */}
-            <motion.div 
+            <motion.div
               className="bg-dark-300/50 backdrop-blur-sm p-8 rounded-xl border border-white/10 h-full"
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -235,10 +235,10 @@ export default function About() {
           </div>
           <div className="absolute top-0 left-0 w-full h-full bg-dark-300/90"></div>
         </div>
-        
+
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
-            <motion.h2 
+            <motion.h2
               className="text-4xl md:text-5xl font-['dena'] mb-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -247,7 +247,7 @@ export default function About() {
             >
               Founders & Team
             </motion.h2>
-            <motion.div 
+            <motion.div
               className="h-1 w-24 bg-primary mx-auto"
               initial={{ width: 0 }}
               whileInView={{ width: 96 }}
@@ -255,10 +255,10 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.2 }}
             />
           </div>
-          
+
           {/* Founders Section */}
           <div className="mb-16">
-            <motion.h3 
+            <motion.h3
               className="text-2xl font-['test'] mb-8 text-center"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -267,10 +267,10 @@ export default function About() {
             >
               Founders
             </motion.h3>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* Founder 1 */}
-              <motion.div 
+              <motion.div
                 className="bg-dark-200/50 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -279,9 +279,9 @@ export default function About() {
                 whileHover={{ y: -5 }}
               >
                 <div className="relative h-64 overflow-hidden">
-                  <Image 
+                  <Image
                     src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=500&auto=format&fit=crop"
-                    alt="Dr. Alexander Chen" 
+                    alt="Dr. Alexander Chen"
                     fill
                     style={{ objectFit: 'cover' }}
                     className="transition-transform duration-500 hover:scale-105"
@@ -301,9 +301,9 @@ export default function About() {
                   </div>
                 </div>
               </motion.div>
-              
+
               {/* Founder 2 */}
-              <motion.div 
+              <motion.div
                 className="bg-dark-200/50 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -312,9 +312,9 @@ export default function About() {
                 whileHover={{ y: -5 }}
               >
                 <div className="relative h-64 overflow-hidden">
-                  <Image 
+                  <Image
                     src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=500&auto=format&fit=crop"
-                    alt="Dr. Sophia Rodriguez" 
+                    alt="Dr. Sophia Rodriguez"
                     fill
                     style={{ objectFit: 'cover' }}
                     className="transition-transform duration-500 hover:scale-105"
@@ -334,9 +334,9 @@ export default function About() {
                   </div>
                 </div>
               </motion.div>
-              
+
               {/* Founder 3 */}
-              <motion.div 
+              <motion.div
                 className="bg-dark-200/50 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -345,9 +345,9 @@ export default function About() {
                 whileHover={{ y: -5 }}
               >
                 <div className="relative h-64 overflow-hidden">
-                  <Image 
+                  <Image
                     src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=500&auto=format&fit=crop"
-                    alt="Marcus Johnson" 
+                    alt="Marcus Johnson"
                     fill
                     style={{ objectFit: 'cover' }}
                     className="transition-transform duration-500 hover:scale-105"
@@ -369,10 +369,10 @@ export default function About() {
               </motion.div>
             </div>
           </div>
-          
+
           {/* Leadership Team */}
           <div className="mb-16">
-            <motion.h3 
+            <motion.h3
               className="text-2xl font-['test'] mb-8 text-center"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -381,10 +381,10 @@ export default function About() {
             >
               Leadership Team
             </motion.h3>
-            
+
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {/* Team Member 1 */}
-              <motion.div 
+              <motion.div
                 className="bg-dark-200/30 backdrop-blur-sm rounded-lg overflow-hidden border border-white/5"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -393,9 +393,9 @@ export default function About() {
                 whileHover={{ y: -5 }}
               >
                 <div className="relative h-48 overflow-hidden">
-                  <Image 
+                  <Image
                     src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400&auto=format&fit=crop"
-                    alt="Emily Zhang" 
+                    alt="Emily Zhang"
                     fill
                     style={{ objectFit: 'cover' }}
                   />
@@ -405,9 +405,9 @@ export default function About() {
                   <p className="text-primary/90 text-sm mb-2 font-['dena']">VP of Engineering</p>
                 </div>
               </motion.div>
-              
+
               {/* Team Member 2 */}
-              <motion.div 
+              <motion.div
                 className="bg-dark-200/30 backdrop-blur-sm rounded-lg overflow-hidden border border-white/5"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -416,9 +416,9 @@ export default function About() {
                 whileHover={{ y: -5 }}
               >
                 <div className="relative h-48 overflow-hidden">
-                  <Image 
+                  <Image
                     src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop"
-                    alt="David Patel" 
+                    alt="David Patel"
                     fill
                     style={{ objectFit: 'cover' }}
                   />
@@ -428,9 +428,9 @@ export default function About() {
                   <p className="text-primary/90 text-sm mb-2 font-['dena']">VP of Product</p>
                 </div>
               </motion.div>
-              
+
               {/* Team Member 3 */}
-              <motion.div 
+              <motion.div
                 className="bg-dark-200/30 backdrop-blur-sm rounded-lg overflow-hidden border border-white/5"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -439,9 +439,9 @@ export default function About() {
                 whileHover={{ y: -5 }}
               >
                 <div className="relative h-48 overflow-hidden">
-                  <Image 
+                  <Image
                     src="https://images.unsplash.com/photo-1629425733761-caae3b5f2e50?q=80&w=400&auto=format&fit=crop"
-                    alt="Sarah Johnson" 
+                    alt="Sarah Johnson"
                     fill
                     style={{ objectFit: 'cover' }}
                   />
@@ -451,9 +451,9 @@ export default function About() {
                   <p className="text-primary/90 text-sm mb-2 font-['dena']">VP of Sales</p>
                 </div>
               </motion.div>
-              
+
               {/* Team Member 4 */}
-              <motion.div 
+              <motion.div
                 className="bg-dark-200/30 backdrop-blur-sm rounded-lg overflow-hidden border border-white/5"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -462,9 +462,9 @@ export default function About() {
                 whileHover={{ y: -5 }}
               >
                 <div className="relative h-48 overflow-hidden">
-                  <Image 
+                  <Image
                     src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400&auto=format&fit=crop"
-                    alt="Michael Torres" 
+                    alt="Michael Torres"
                     fill
                     style={{ objectFit: 'cover' }}
                   />
@@ -476,9 +476,9 @@ export default function About() {
               </motion.div>
             </div>
           </div>
-          
+
           {/* Team Photo */}
-          <motion.div 
+          <motion.div
             className="relative rounded-xl overflow-hidden"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -486,9 +486,9 @@ export default function About() {
             transition={{ duration: 0.8 }}
           >
             <div className="relative h-96 md:h-[500px]">
-              <Image 
+              <Image
                 src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1600&auto=format&fit=crop"
-                alt="Galactic 3D Team" 
+                alt="Galactic 3D Team"
                 fill
                 style={{ objectFit: 'cover' }}
                 className="brightness-75"
@@ -515,10 +515,10 @@ export default function About() {
           </video>
           <div className="absolute inset-0 bg-dark-200/70"></div>
         </div>
-        
+
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
-            <motion.h2 
+            <motion.h2
               className="text-4xl md:text-5xl font-['dena'] mb-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -527,14 +527,14 @@ export default function About() {
             >
               Facility Showcase
             </motion.h2>
-            <motion.div 
+            <motion.div
               className="h-1 w-24 bg-primary mx-auto"
               initial={{ width: 0 }}
               whileInView={{ width: 96 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             />
-            <motion.p 
+            <motion.p
               className="mt-6 text-xl font-['scrib'] text-white/80 max-w-3xl mx-auto"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -544,9 +544,9 @@ export default function About() {
               Our state-of-the-art manufacturing facilities combine cutting-edge technology with sustainable practices.
             </motion.p>
           </div>
-          
+
           {/* Facility Images Carousel */}
-          <motion.div 
+          <motion.div
             className="mb-16 overflow-hidden rounded-xl"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -554,20 +554,20 @@ export default function About() {
             transition={{ duration: 0.8 }}
           >
             <div className="relative h-[300px] md:h-[500px] w-full">
-              <Image 
+              <Image
                 src="https://ik.imagekit.io/0s6dxbeae/unnamed.webp?updatedAt=1756120646928"
-                alt="Galactic 3D Manufacturing Facility" 
+                alt="Galactic 3D Manufacturing Facility"
                 fill
                 style={{ objectFit: 'cover' }}
                 className="rounded-xl"
               />
             </div>
           </motion.div>
-          
+
           {/* Facility Features */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Feature 1 */}
-            <motion.div 
+            <motion.div
               className="bg-dark-300/50 backdrop-blur-sm p-6 rounded-xl border border-white/10"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -582,9 +582,9 @@ export default function About() {
                 Our facilities maintain ISO 9001 and ISO 13485 certifications, ensuring the highest standards of management and medical device production capabilities.
               </p>
             </motion.div>
-            
+
             {/* Feature 2 */}
-            <motion.div 
+            <motion.div
               className="bg-dark-300/50 backdrop-blur-sm p-6 rounded-xl border border-white/10"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -599,9 +599,9 @@ export default function About() {
                 Powered by 100% renewable energy and designed for minimal environmental impact, our facilities represent our commitment to sustainable manufacturing practices.
               </p>
             </motion.div>
-            
+
             {/* Feature 3 */}
-            <motion.div 
+            <motion.div
               className="bg-dark-300/50 backdrop-blur-sm p-6 rounded-xl border border-white/10"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -627,11 +627,11 @@ export default function About() {
       {/* STATS SECTION */}
       <section className="py-20 bg-dark-300 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
-        
+
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Stat 1 */}
-            <motion.div 
+            <motion.div
               className="text-center p-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -642,9 +642,9 @@ export default function About() {
               <div className="text-xl font-['dena'] mb-1">Global Patents</div>
               <p className="text-white/60 font-['scrib'] text-sm">Innovations in additive manufacturing</p>
             </motion.div>
-            
+
             {/* Stat 2 */}
-            <motion.div 
+            <motion.div
               className="text-center p-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -655,9 +655,9 @@ export default function About() {
               <div className="text-xl font-['dena'] mb-1">Team Members</div>
               <p className="text-white/60 font-['scrib'] text-sm">Across 12 countries</p>
             </motion.div>
-            
+
             {/* Stat 3 */}
-            <motion.div 
+            <motion.div
               className="text-center p-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -668,9 +668,9 @@ export default function About() {
               <div className="text-xl font-['dena'] mb-1">Parts Produced</div>
               <p className="text-white/60 font-['scrib'] text-sm">For aerospace, automotive, and medical industries</p>
             </motion.div>
-            
+
             {/* Stat 4 */}
-            <motion.div 
+            <motion.div
               className="text-center p-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -691,10 +691,10 @@ export default function About() {
           <div className="absolute top-0 left-0 w-full h-full bg-grid-pattern opacity-5"></div>
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/5 to-secondary/5"></div>
         </div>
-        
+
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
-            <motion.h2 
+            <motion.h2
               className="text-4xl md:text-5xl font-['dena'] mb-4"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -703,7 +703,7 @@ export default function About() {
             >
               Certifications & Partnerships
             </motion.h2>
-            <motion.div 
+            <motion.div
               className="h-1 w-24 bg-primary mx-auto"
               initial={{ width: 0 }}
               whileInView={{ width: 96 }}
@@ -711,11 +711,11 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.2 }}
             />
           </div>
-          
+
           {/* Logo Grid */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-16">
             {/* Logo 1 */}
-            <motion.div 
+            <motion.div
               className="bg-dark-300/50 backdrop-blur-sm p-6 rounded-xl border border-white/10 flex items-center justify-center h-32"
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -723,17 +723,17 @@ export default function About() {
               transition={{ duration: 0.5 }}
               whileHover={{ y: -5, boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)' }}
             >
-              <Image 
+              <Image
                 src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=200&auto=format&fit=crop"
-                alt="ISO Certification" 
+                alt="ISO Certification"
                 width={120}
                 height={60}
                 style={{ objectFit: 'contain', filter: 'brightness(0.9) grayscale(0.5)' }}
               />
             </motion.div>
-            
+
             {/* Logo 2 */}
-            <motion.div 
+            <motion.div
               className="bg-dark-300/50 backdrop-blur-sm p-6 rounded-xl border border-white/10 flex items-center justify-center h-32"
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -741,17 +741,17 @@ export default function About() {
               transition={{ duration: 0.5, delay: 0.05 }}
               whileHover={{ y: -5, boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)' }}
             >
-              <Image 
+              <Image
                 src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=200&auto=format&fit=crop"
-                alt="Aerospace Partner" 
+                alt="Aerospace Partner"
                 width={120}
                 height={60}
                 style={{ objectFit: 'contain', filter: 'brightness(0.9) grayscale(0.5)' }}
               />
             </motion.div>
-            
+
             {/* Logo 3 */}
-            <motion.div 
+            <motion.div
               className="bg-dark-300/50 backdrop-blur-sm p-6 rounded-xl border border-white/10 flex items-center justify-center h-32"
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -759,17 +759,17 @@ export default function About() {
               transition={{ duration: 0.5, delay: 0.1 }}
               whileHover={{ y: -5, boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)' }}
             >
-              <Image 
+              <Image
                 src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=200&auto=format&fit=crop"
-                alt="Automotive Partner" 
+                alt="Automotive Partner"
                 width={120}
                 height={60}
                 style={{ objectFit: 'contain', filter: 'brightness(0.9) grayscale(0.5)' }}
               />
             </motion.div>
-            
+
             {/* Logo 4 */}
-            <motion.div 
+            <motion.div
               className="bg-dark-300/50 backdrop-blur-sm p-6 rounded-xl border border-white/10 flex items-center justify-center h-32"
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -777,17 +777,17 @@ export default function About() {
               transition={{ duration: 0.5, delay: 0.15 }}
               whileHover={{ y: -5, boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)' }}
             >
-              <Image 
+              <Image
                 src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=200&auto=format&fit=crop"
-                alt="Medical Partner" 
+                alt="Medical Partner"
                 width={120}
                 height={60}
                 style={{ objectFit: 'contain', filter: 'brightness(0.9) grayscale(0.5)' }}
               />
             </motion.div>
-            
+
             {/* Logo 5 */}
-            <motion.div 
+            <motion.div
               className="bg-dark-300/50 backdrop-blur-sm p-6 rounded-xl border border-white/10 flex items-center justify-center h-32"
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -795,17 +795,17 @@ export default function About() {
               transition={{ duration: 0.5, delay: 0.2 }}
               whileHover={{ y: -5, boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)' }}
             >
-              <Image 
+              <Image
                 src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=200&auto=format&fit=crop"
-                alt="Research Partner" 
+                alt="Research Partner"
                 width={120}
                 height={60}
                 style={{ objectFit: 'contain', filter: 'brightness(0.9) grayscale(0.5)' }}
               />
             </motion.div>
           </div>
-          
-          <motion.div 
+
+          <motion.div
             className="text-center"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -829,7 +829,7 @@ export default function About() {
           </div>
           <div className="absolute top-0 left-0 w-full h-full bg-dark-300/80"></div>
         </div>
-        
+
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -869,7 +869,7 @@ export default function About() {
                 View Open Positions <ArrowRight className="w-5 h-5" />
               </Link>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -877,9 +877,9 @@ export default function About() {
               transition={{ duration: 0.7 }}
               className="relative h-[400px] rounded-xl overflow-hidden"
             >
-              <Image 
+              <Image
                 src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop"
-                alt="Galactic 3D Team Collaboration" 
+                alt="Galactic 3D Team Collaboration"
                 fill
                 style={{ objectFit: 'cover' }}
                 className="rounded-xl"
@@ -900,7 +900,7 @@ export default function About() {
           </div>
           <div className="absolute top-0 left-0 w-full h-full bg-dark-300/50"></div>
         </div>
-        
+
         <div className="container mx-auto px-6 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -916,8 +916,8 @@ export default function About() {
             </p>
             <div className="flex flex-col md:flex-row justify-center gap-6">
               <motion.div whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
-                <Link 
-                  href="/contact" 
+                <Link
+                  href="/contact"
                   className="bg-primary text-white font-['dena'] py-4 px-8 rounded-full inline-flex items-center space-x-2 hover:bg-primary/90 transition-colors duration-300 shadow-lg shadow-primary/20"
                 >
                   <span>Contact Us</span>
@@ -925,8 +925,8 @@ export default function About() {
                 </Link>
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
-                <Link 
-                  href="/projects" 
+                <Link
+                  href="/projects"
                   className="bg-transparent text-white font-['dena'] py-4 px-8 rounded-full border-2 border-white/30 inline-flex items-center space-x-2 hover:bg-white/10 transition-all duration-300"
                 >
                   <span>Explore Our Work</span>
